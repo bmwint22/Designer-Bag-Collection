@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/bags/bag-index.css' %}"/>
+{% endblock %} 
+{% block content %}
+
+<section class="page-header">
+  <h1>Bag List</h1>
+</section>
+
+<section class="card-container">
+  {% for bag in bags %}
+    <div class="card">
+      <div class="card-content">
+        <div class="card-img-container">
+          <img
+          />
+        </div>
+        <h2 class="card-title">{{ bag.brand }}</h2>
+        {% if bag.name > 0 %}
+        <p>A {{ bag.color }} Color {{ bag.texture }}</p>
+        {% else %}
+        <p>A {{ bag.texture}} Texture</p>
+        {% endif %}
+        <p><small>{{ bag.description }}</small></p>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
