@@ -8,6 +8,7 @@
 <section class="page-header">
   <h1>Bag List</h1>
 </section>
+<a href="{% url 'bag-detail' bag.id %}">
 
 <section class="card-container">
   {% for bag in bags %}

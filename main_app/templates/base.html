@@ -22,10 +22,11 @@
       </div>
       <nav>
         <ul>
-          <li><a href="/about">About</a></li>
-          <li><a href="/cats">All Bags</a></li>
+          <li><a href="{% url 'bag-index' %}">All Bags</a></li>
+          <li><a href="{% url 'bag-create' %}">Add a Bag</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
         </ul>
-      </nav>
+       </nav>
     </header>
     <main>
      {% block content %} 
