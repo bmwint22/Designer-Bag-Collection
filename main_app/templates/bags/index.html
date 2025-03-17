@@ -1,30 +1,40 @@
 {% extends 'base.html' %} 
 {% load static %} 
+
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/bags/bag-index.css' %}"/>
 {% endblock %} 
+
 {% block content %}
 
 <section class="page-header">
   <h1>Bag List</h1>
 </section>
-<a href="{% url 'bag-detail' bag.id %}">
 
 <section class="card-container">
   {% for bag in bags %}
     <div class="card">
       <div class="card-content">
         <div class="card-img-container">
-          <img
-          />
+          <img />
         </div>
         <h2 class="card-title">{{ bag.brand }}</h2>
-        {% if bag.name > 0 %}
-        <p>A {{ bag.color }} Color {{ bag.texture }}</p>
+
+        {% if bag.name %}
+          <p>A {{ bag.color }} Color {{ bag.texture }}</p>
         {% else %}
-        <p> {{ bag.texture}} Texture</p>
+          <p>{{ bag.texture }} Texture</p>
         {% endif %}
+
         <p><small>{{ bag.description }}</small></p>
+
+        <!-- Ensure bag.id exists before generating a link -->
+        {% if bag.id %}
+          <a href="{% url 'bag-detail' bag.id %}" class="btn">View Details</a>
+        {% else %}
+          <p>Invalid bag entry</p>
+        {% endif %}
+        
       </div>
     </div>
   {% endfor %}
