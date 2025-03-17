@@ -28,7 +28,6 @@
 
         <p><small>{{ bag.description }}</small></p>
 
-        <!-- Ensure bag.id exists before generating a link -->
         {% if bag.id %}
           <a href="{% url 'bag-detail' bag.id %}" class="btn">View Details</a>
         {% else %}
