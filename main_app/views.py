@@ -58,10 +58,14 @@ class BagCreate(LoginRequiredMixin, CreateView):
     fields = ['brand', 'name', 'color', 'texture', 'description'] 
     success_url = '/bags/'
     
-def form_valid(self, form):
+class BagCreate(LoginRequiredMixin, CreateView):
+    model = Bag
+    fields = ['brand', 'name', 'color', 'texture', 'description'] 
+    success_url = '/bags/'
+
+    def form_valid(self, form): 
         form.instance.user = self.request.user 
         return super().form_valid(form)
-    
 def signup(request):
     error_message = ''
     if request.method == 'POST':
