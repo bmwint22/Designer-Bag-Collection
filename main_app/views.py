@@ -55,7 +55,7 @@ def bag_detail(request, bag_id):
     return render(request, 'bags/detail.html', {'bag': bag})
 class BagCreate(LoginRequiredMixin, CreateView):
     model = Bag
-    fields = '__all__'
+    fields = ['brand', 'name', 'color', 'texture', 'description'] 
     success_url = '/bags/'
     
 def form_valid(self, form):
