@@ -17,8 +17,10 @@ The **Designer Bag Collection App** is a simple and intuitive tool designed to h
 
 
 ##  Technologies Used  
-- **Frontend:** HTML, CSS, Python, Django  
-- **Backend:** Django
+- python
+- Django
+- HTML
+- CSS
 - **Database:** PostgreSQL
 
 ## Stretch Goal
