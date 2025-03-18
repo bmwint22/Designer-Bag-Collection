@@ -1,5 +1,3 @@
-/* bag-index.css */
-
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f1ec;
@@ -9,8 +7,8 @@ body {
   }
   
   .page-header {
-    background-color: #6f4f28;
-    color: white;
+    background-color:#f4f1ec;
+    color:#5c4f46;
     padding: 20px;
     text-align: center;
   }
