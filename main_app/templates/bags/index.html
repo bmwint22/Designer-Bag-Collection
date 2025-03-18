@@ -21,7 +21,7 @@
         <h2 class="card-title">{{ bag.brand }}</h2>
 
         {% if bag.name %}
-          <p>A {{ bag.color }} Color {{ bag.texture }}</p>
+          <p>{{ bag.color }} {{ bag.texture }}</p>
         {% else %}
           <p>{{ bag.texture }} Texture</p>
         {% endif %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Bag
@@ -10,12 +10,35 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import AuthenticationForm
 
+def user_login(request):
+    error_message = ''
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)  
+                return redirect('bag-index')  
+            else:
+                error_message = 'Invalid username or password'
+        else:
+            error_message = 'Invalid form submission'
+    
+    form = AuthenticationForm()
+    return render(request, 'login.html', {'form': form, 'error_message': error_message})
 
 
 
 class Home(LoginView):
     template_name = 'home.html'
+    
+def landing(request):
+    return render(request, 'landing.html') 
     
 @login_required
 def bag_index(request):

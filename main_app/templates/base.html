@@ -10,14 +10,11 @@
     
     <title>Designer Bag Collection</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-    {% block head %} 
+      {% block head %} 
     {% endblock %}
   </head>
   <body>
       <header>
-        <div class="header-logo-container">
-          <a href="/" class="home-button">Home</a>
-        </div>
         <nav>
           <ul>
             {% if user.is_authenticated %}
@@ -30,8 +27,9 @@
     </form>
              </li>
             {% else %}
-               <li><a href="{% url 'home' %}">Login</a></li>
+               <li><a href="{% url 'landing' %}">Home</a></li>
                <li><a href="{% url 'signup' %}">Sign Up</a></li>
+               <li><a href="{% url 'login' %}">Login</a></li>
             {% endif %}
           </ul>
         </nav>

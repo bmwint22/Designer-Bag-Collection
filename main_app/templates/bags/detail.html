@@ -18,7 +18,7 @@
       <h2>A {{ bag.texture }} bag</h2>  
     {% endif %}
     <p>{{ bag.description }}</p>
-    <div class="cat-actions">
+    <div class="bag-actions">
         <a href="{% url 'bag-update' bag.id %}" class="btn warn">Edit</a>
         <a href="{% url 'bag-delete' bag.id %}" class="btn danger">Delete</a>
       </div>
