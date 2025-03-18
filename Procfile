@@ -1,1 +1,1 @@
-web: gunicorn designer-bag-collection.wsgi
+web: gunicorn designer_bag_collection.wsgi
